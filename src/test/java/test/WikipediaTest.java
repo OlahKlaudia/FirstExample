@@ -1,7 +1,10 @@
-package Wikipedia;
+package test;
 
 import Base.TestBase;
 import org.junit.jupiter.api.Test;
+import pages.CheckTheParagraphPage;
+import pages.WikipediaPage;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WikipediaTest extends TestBase {

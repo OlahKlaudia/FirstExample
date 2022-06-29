@@ -1,11 +1,11 @@
-package Wikipedia;
+package pages;
 
 import Base.BasePage;
-import Base.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import pages.CheckTheParagraphPage;
 
 public class WikipediaPage extends BasePage {
     WebElement inputElement = driver.findElement(By.cssSelector("input[name='search']"));

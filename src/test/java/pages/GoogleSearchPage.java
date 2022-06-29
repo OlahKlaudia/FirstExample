@@ -1,4 +1,4 @@
-package Wikipedia;
+package pages;
 
 import Base.BasePage;
 import org.openqa.selenium.By;
@@ -18,8 +18,8 @@ public class GoogleSearchPage extends BasePage {
         searchInput.sendKeys(Keys.ENTER);
 
     }
-    public PageSearchResultCorrect enterOnTheSearshButton() {
-        return new PageSearchResultCorrect(driver);
+    public SearchResultCorrectPage enterOnTheSearshButton() {
+        return new SearchResultCorrectPage(driver);
     }
 
 }

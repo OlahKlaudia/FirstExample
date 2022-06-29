@@ -1,4 +1,4 @@
-package Wikipedia;
+package Base;
 
 import Base.TestBase;
 import io.qameta.allure.Allure;

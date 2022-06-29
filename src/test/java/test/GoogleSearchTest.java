@@ -1,4 +1,4 @@
-package Wikipedia;
+package test;
 
 import Base.TestBase;
 import io.qameta.allure.*;
@@ -6,6 +6,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import pages.GoogleSearchPage;
+import pages.SearchResultCorrectPage;
 
 @Epic("Web shop")
 @Feature("Web shop function tests")
@@ -30,7 +32,7 @@ public class GoogleSearchTest extends TestBase {
     public void wikipediaSearchTest() {
         GoogleSearchPage wkPage = googleUrl();
         wkPage.pageWriteTheInputAndEnter();
-        PageSearchResultCorrect checkTheParagraphPage = wkPage.enterOnTheSearshButton();
+        SearchResultCorrectPage checkTheParagraphPage = wkPage.enterOnTheSearshButton();
         checkTheParagraphPage.page_searchresult_correct();
         checkTheParagraphPage.clickFirstLink();
 

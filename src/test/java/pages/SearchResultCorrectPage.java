@@ -1,7 +1,6 @@
-package Wikipedia;
+package pages;
 
 import Base.BasePage;
-import Base.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,10 +10,10 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class PageSearchResultCorrect extends BasePage {
+public class SearchResultCorrectPage extends BasePage {
    private static final String PARAGRAPH_TEXT = "Cheese is a dairy product produced in wide ranges of flavors, textures and forms by coagulation of the milk protein casein.";
 
-    public PageSearchResultCorrect(WebDriver driver) {
+    public SearchResultCorrectPage(WebDriver driver) {
         super(driver);
     }
 

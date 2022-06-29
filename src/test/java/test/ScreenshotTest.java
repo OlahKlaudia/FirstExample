@@ -1,5 +1,6 @@
-package Wikipedia;
+package test;
 
+import Base.ScreenshotCreater;
 import Base.TestBase;
 import org.junit.jupiter.api.Test;
 public class ScreenshotTest extends TestBase {

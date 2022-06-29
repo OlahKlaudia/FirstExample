@@ -1,7 +1,6 @@
-package Wikipedia;
+package pages;
 
 import Base.BasePage;
-import Base.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

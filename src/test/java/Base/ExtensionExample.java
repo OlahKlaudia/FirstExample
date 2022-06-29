@@ -1,6 +1,5 @@
 package Base;
 
-import Wikipedia.ScreenshotCreater;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
 import java.util.*;
