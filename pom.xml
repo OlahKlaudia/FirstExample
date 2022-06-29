@@ -7,7 +7,6 @@
     <groupId>org.example</groupId>
     <artifactId>exampleProject001</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
@@ -17,8 +16,6 @@
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot -->
-
-
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -73,27 +70,6 @@
     </dependencies>
     <build>
         <plugins>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <version>3.0.0-M5</version>-->
-<!--                <configuration>-->
-<!--                    <dependenciesToScan>-->
-<!--                        <dependency>org.acme:project-a</dependency>-->
-<!--                        <dependency>org.acme:project-b:test-jar</dependency>-->
-<!--                        <dependency>org.acme:project-c:*:tests-jdk15</dependency>-->
-<!--                    </dependenciesToScan>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-compiler-plugin</artifactId>-->
-<!--                <version>3.9.0</version>-->
-<!--                <configuration>-->
-<!--                    <source>8</source>-->
-<!--                    <target>8</target>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>

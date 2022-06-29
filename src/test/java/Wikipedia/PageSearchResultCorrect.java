@@ -1,13 +1,11 @@
-package com.da.example001;
+package Wikipedia;
 
+import Base.TestBase;
 import org.openqa.selenium.By;
-
-
 import java.math.BigInteger;
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class Page3 extends ExampleTest {
+public class PageSearchResultCorrect extends TestBase {
 
     public void page_searchresult_correct(){
         String result = getDriver().findElement(By.cssSelector("div[id='result-stats']")).getText();
