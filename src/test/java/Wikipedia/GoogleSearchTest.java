@@ -28,16 +28,16 @@ public class GoogleSearchTest extends TestBase {
     }
     @Test
     public void wikipediaSearchTest() {
-        PageEnterTheSearchButton wkPage = googleUrl();
+        GoogleSearchPage wkPage = googleUrl();
         wkPage.pageWriteTheInputAndEnter();
         PageSearchResultCorrect checkTheParagraphPage = wkPage.enterOnTheSearshButton();
         checkTheParagraphPage.page_searchresult_correct();
         checkTheParagraphPage.clickFirstLink();
 
     }
-    private PageEnterTheSearchButton googleUrl() {
+    private GoogleSearchPage googleUrl() {
         getDriver().get(WIKIPEDIAURL);
-        return new PageEnterTheSearchButton();
+        return new GoogleSearchPage(getDriver());
     }
     @Attachment("Screenshot on failure")
     public byte[] makeScreenshot() {

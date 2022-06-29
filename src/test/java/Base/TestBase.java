@@ -15,21 +15,23 @@ abstract public class TestBase {
 
     private static final BrowsersEnum BROWSER = BrowsersEnum.chrome;
     private static final String ENVIRONMENT_PROPERTIES=".\\target\\allure-results\\";
-    private static final String FILENAME="environment.properties2";
+    private static final String FILENAME="environment.properties";
     private static WebDriver driver;
 
     @BeforeEach
-    public void setup() {
+    public void beforeTest() {
         driver = new DriverFactory().createDriver(BROWSER);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.manage().window().maximize();
     }
+
     @AfterAll
     public static void afterTestBaseClass() {
         driver.close();
         createEnvironmentFile();
         }
-    private static void createEnvironmentFile(){
+
+    private static void createEnvironmentFile(){//TODO need refactor
         String name = "ChromeDriver ";
         String version = "102.0.5005.61 ";
         String port = "59003";

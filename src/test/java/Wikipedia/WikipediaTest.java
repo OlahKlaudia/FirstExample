@@ -1,6 +1,5 @@
 package Wikipedia;
 
-
 import Base.TestBase;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,6 +16,7 @@ public class WikipediaTest extends TestBase {
         System.out.println(wkPage.getTitleTextinWikipedia());
 
     }
+
     @Test
     public void wikipediaSearchTest() {
         WikipediaPage wkPage = navigateToWikipediaPage();
@@ -25,9 +25,10 @@ public class WikipediaTest extends TestBase {
         assertEquals(checkTheParagraphPage.getTitleTextHelloWorld(), HELLO_WORLD_TITLE);
         getDriver().close();
     }
+
     private WikipediaPage navigateToWikipediaPage() {
         getDriver().get(WIKIPEDIA_URL);
-        return new WikipediaPage();
+        return new WikipediaPage(getDriver());
     }
 
 }

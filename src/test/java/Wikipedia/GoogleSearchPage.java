@@ -1,20 +1,25 @@
 package Wikipedia;
 
-import Base.TestBase;
+import Base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class PageEnterTheSearchButton extends TestBase {
+public class GoogleSearchPage extends BasePage {
+
+    public GoogleSearchPage(WebDriver driver) {
+        super(driver);
+    }
 
     public void pageWriteTheInputAndEnter(){
-        WebElement searchInput = getDriver().findElement(By.cssSelector("input[name='q']"));
+        WebElement searchInput = driver.findElement(By.cssSelector("input[name='q']"));
         searchInput.sendKeys("cheese");
         searchInput.sendKeys(Keys.ENTER);
 
     }
     public PageSearchResultCorrect enterOnTheSearshButton() {
-        return new PageSearchResultCorrect();
+        return new PageSearchResultCorrect(driver);
     }
 
 }
