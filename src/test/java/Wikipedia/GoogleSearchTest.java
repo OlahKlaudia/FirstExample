@@ -7,11 +7,10 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-
 @Epic("Web shop")
 @Feature("Web shop function tests")
-public class WikipediaUrl extends TestBase {
-    private static final String WIKIPEDIAURL = "https://www.wikipedia.org/";
+public class GoogleSearchTest extends TestBase {
+    private static final String WIKIPEDIAURL = "https://www.google.com/";
     @Test
     @Owner("Olah Klaudia")
     @Story("Testing search")
@@ -27,7 +26,19 @@ public class WikipediaUrl extends TestBase {
         getDriver().get(WIKIPEDIAURL);
         makeScreenshot();
     }
+    @Test
+    public void wikipediaSearchTest() {
+        PageEnterTheSearchButton wkPage = googleUrl();
+        wkPage.pageWriteTheInputAndEnter();
+        PageSearchResultCorrect checkTheParagraphPage = wkPage.enterOnTheSearshButton();
+        checkTheParagraphPage.page_searchresult_correct();
+        checkTheParagraphPage.clickFirstLink();
 
+    }
+    private PageEnterTheSearchButton googleUrl() {
+        getDriver().get(WIKIPEDIAURL);
+        return new PageEnterTheSearchButton();
+    }
     @Attachment("Screenshot on failure")
     public byte[] makeScreenshot() {
         return ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.BYTES);

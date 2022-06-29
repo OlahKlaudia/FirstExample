@@ -30,11 +30,18 @@ abstract public class TestBase {
         createEnvironmentFile();
         }
     private static void createEnvironmentFile(){
-        String s = "helloka";
+        String name = "ChromeDriver ";
+        String version = "102.0.5005.61 ";
+        String port = "59003";
+
         try {
             FileOutputStream outputStream= new FileOutputStream(ENVIRONMENT_PROPERTIES + FILENAME);
-            byte[] strByte = s.getBytes();
+            byte[] strByte = name.getBytes();
             outputStream.write(strByte);
+            byte[] vrsByte = version.getBytes();
+            outputStream.write(vrsByte);
+            byte[] prtByte = port.getBytes();
+            outputStream.write(prtByte);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
