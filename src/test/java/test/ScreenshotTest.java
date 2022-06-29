@@ -1,7 +1,7 @@
 package test;
 
-import Base.ScreenshotCreater;
-import Base.TestBase;
+import base.ScreenshotCreater;
+import base.TestBase;
 import org.junit.jupiter.api.Test;
 public class ScreenshotTest extends TestBase {
     private static final String URLTHEWEBSITE = "https://en.wikipedia.org/wiki/Hello";

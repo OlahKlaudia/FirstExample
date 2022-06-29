@@ -1,6 +1,6 @@
 package test;
 
-import Base.TestBase;
+import base.TestBase;
 import org.junit.jupiter.api.Test;
 import pages.CheckTheParagraphPage;
 import pages.WikipediaPage;

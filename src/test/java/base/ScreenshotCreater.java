@@ -1,6 +1,5 @@
-package Base;
+package base;
 
-import Base.TestBase;
 import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
