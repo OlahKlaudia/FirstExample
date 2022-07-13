@@ -1,6 +1,5 @@
 package pages;
 
-import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -16,8 +15,8 @@ public class GoogleSearchPage extends BasePage {
         WebElement searchInput = driver.findElement(By.cssSelector("input[name='q']"));
         searchInput.sendKeys("cheese");
         searchInput.sendKeys(Keys.ENTER);
-
     }
+
     public SearchResultCorrectPage enterOnTheSearshButton() {
         return new SearchResultCorrectPage(driver);
     }

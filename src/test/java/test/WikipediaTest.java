@@ -17,7 +17,6 @@ public class WikipediaTest extends TestBase {
     public void wikipediaTitleTest() {
         WikipediaPage wkPage = navigateToWikipediaPage();
         System.out.println(wkPage.getTitleTextinWikipedia());
-
     }
 
     @Test
@@ -26,7 +25,6 @@ public class WikipediaTest extends TestBase {
         wkPage.writeSearchText(SEARCH_TEXT);
         CheckTheParagraphPage checkTheParagraphPage = wkPage.enterOnTheSearshButton();
         assertEquals(checkTheParagraphPage.getTitleTextHelloWorld(), HELLO_WORLD_TITLE);
-        getDriver().close();
     }
 
     private WikipediaPage navigateToWikipediaPage() {

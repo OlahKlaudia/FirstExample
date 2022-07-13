@@ -28,14 +28,15 @@ public class GoogleSearchTest extends TestBase {
         getDriver().get(WIKIPEDIAURL);
         makeScreenshot();
     }
-    @Test
+
+
+   @Test
     public void wikipediaSearchTest() {
         GoogleSearchPage wkPage = googleUrl();
         wkPage.pageWriteTheInputAndEnter();
         SearchResultCorrectPage checkTheParagraphPage = wkPage.enterOnTheSearshButton();
         checkTheParagraphPage.page_searchresult_correct();
         checkTheParagraphPage.clickFirstLink();
-
     }
     private GoogleSearchPage googleUrl() {
         getDriver().get(WIKIPEDIAURL);
@@ -45,6 +46,4 @@ public class GoogleSearchTest extends TestBase {
     public byte[] makeScreenshot() {
         return ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.BYTES);
     }
-
-
 }

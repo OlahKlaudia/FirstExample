@@ -1,5 +1,15 @@
 package base;
 
 public enum BrowsersEnum {
-    firefox, chrome, edge
+    CHROME("chrome"), FIREFOX("firefox"), EDGE("edge");
+
+    private String browserName;
+    BrowsersEnum(String browserName) {
+        this.browserName = browserName;
+    }
+
+    String getName() {
+        return browserName;
+    }
+
 }
