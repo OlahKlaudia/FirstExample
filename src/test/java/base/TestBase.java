@@ -26,32 +26,30 @@ abstract public class TestBase {
     public void beforeTest() throws MalformedURLException {
         System.out.println(BROWSER_REMOTE);
         if (BROWSER_PROPERTIES == null) {
-            driver = new DriverFactory().createRemoteWebDriver(BrowsersEnum.CHROME, URL);
+            driver = new DriverFactory().getRemoteMode(BrowsersEnum.CHROME, URL);
         }
         System.getProperty("browser");
-        whenConvertedIntoEnum_thenGetsConvertedCorrectly();
 
-
-
+        if (BROWSER_REMOTE) {
+            driver = new DriverFactory().getRemoteMode(convertedIntoEnumToString(), URL);
+        } else {
+            driver = new DriverFactory().getSimpleMode(convertedIntoEnumToString());
+        }
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.manage().window().maximize();
-
     }
 
-    public void whenConvertedIntoEnum_thenGetsConvertedCorrectly() throws MalformedURLException {
-        for (BrowsersEnum env : BrowsersEnum.values()) {
-            if (BROWSER_PROPERTIES.equalsIgnoreCase(env.getName())) {
-                env.getName();
-                if (BROWSER_REMOTE) {
-                    driver = new DriverFactory().createRemoteWebDriver(env, URL);
-                } else {
-                    driver = new DriverFactory().createDriver(env);
-                }
+    public BrowsersEnum convertedIntoEnumToString() {
+
+        for (BrowsersEnum browsersEnum : BrowsersEnum.values()) {
+            if (BROWSER_PROPERTIES.equalsIgnoreCase(browsersEnum.getName())) {
+//                browsersEnum.getName();
+                return browsersEnum;
             } else
                 System.out.println("default");
         }
+    return null;
     }
-
     @AfterEach
     public void afterTest() {
         driver.close();
