@@ -14,7 +14,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class BrowserFactoryPage {
+public class BrowserFactory {
     public WebDriver createDriver(BrowsersEnum browser) {
         switch (browser) {
             case CHROME:
@@ -26,6 +26,14 @@ public class BrowserFactoryPage {
             case FIREFOX:
                 WebDriverManager.firefoxdriver().setup();
                 return new FirefoxDriver();
+            case EDGEHEADLESS:
+                WebDriverManager.edgedriver().setup();
+                EdgeOptions edgeoptions = new EdgeOptions();
+                return new EdgeDriver(edgeoptions.setHeadless(true));
+            case FIREFOXHEADLESS:
+                WebDriverManager.firefoxdriver().setup();
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                return new FirefoxDriver(firefoxOptions.setHeadless(true));
             default:
                 return new ChromeDriver();
         }
@@ -39,6 +47,12 @@ public class BrowserFactoryPage {
                 break;
             case FIREFOX:
                 driver = new RemoteWebDriver(new URL(url), new FirefoxOptions());
+                break;
+            case EDGEHEADLESS:
+                driver = new RemoteWebDriver(new URL(url), new EdgeOptions().setHeadless(true));
+                break;
+            case FIREFOXHEADLESS:
+                driver = new RemoteWebDriver(new URL(url), new FirefoxOptions().setHeadless(true));
                 break;
             default:
                 driver = new RemoteWebDriver(new URL(url), new ChromeOptions());
