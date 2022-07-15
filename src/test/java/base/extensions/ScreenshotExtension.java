@@ -1,10 +1,12 @@
-package base;
+package base.extensions;
 
+import base.ScreenshotCreater;
+import base.TestBase;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
 import java.util.*;
 
-public class ExtensionExample implements TestWatcher {
+public class ScreenshotExtension implements TestWatcher { //Todo rename
     @Override
     public void testDisabled(ExtensionContext context, Optional<String> reason) {
     }

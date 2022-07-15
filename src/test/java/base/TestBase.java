@@ -1,5 +1,7 @@
 package base;
 
+import base.extensions.ScreenshotExtension;
+import base.factory.DriverFactory;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,12 +9,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 import pages.ChromeCapabilitieProperties;
 
-import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.UnknownHostException;
 import java.time.Duration;
 
-@ExtendWith(ExtensionExample.class)
+@ExtendWith(ScreenshotExtension.class)
 abstract public class TestBase {
     private static WebDriver driver;
     private static final String URL = "http://192.168.0.146:4444/wd/hub";
@@ -21,23 +22,24 @@ abstract public class TestBase {
 
     @BeforeEach
     public void beforeTest() throws MalformedURLException, UnknownHostException {
-        InetAddress address2 = InetAddress.getByName("45.22.30.39");
+    //    InetAddress address2 = InetAddress.getByName("45.22.30.39");
         System.out.println(BROWSER_REMOTE);
         if (BROWSER_PROPERTIES == null) {
-            driver = new DriverFactory().getRemoteMode(BrowsersEnum.CHROME, URL);
+            driver = new DriverFactory().createRemoteWebDriver(BrowsersEnum.CHROME, URL);
         }
         System.getProperty("browser");
 
         if (BROWSER_REMOTE) {
-            driver = new DriverFactory().getRemoteMode(convertedIntoEnumToString(), URL);//address2.getHostName()
+            driver = new DriverFactory().createRemoteWebDriver(convertedIntoEnumToString(), URL);//address2.getHostName()
         } else {
-            driver = new DriverFactory().getSimpleMode(convertedIntoEnumToString());
+            driver = new DriverFactory().createDriver(convertedIntoEnumToString());
         }
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.manage().window().maximize();
     }
 
-    public BrowsersEnum convertedIntoEnumToString() {
+
+    public static BrowsersEnum convertedIntoEnumToString() {
         for (BrowsersEnum browsersEnum : BrowsersEnum.values()) {
             if (BROWSER_PROPERTIES.equalsIgnoreCase(browsersEnum.getName())) {
 //                browsersEnum.getName();
@@ -53,7 +55,7 @@ abstract public class TestBase {
     }
 
     @AfterAll
-    public static void afterTestBaseClass(){
+    public static void afterTestBaseClass() {
         new ChromeCapabilitieProperties().createEnvironmentFile();
     }
 
